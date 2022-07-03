@@ -3,15 +3,12 @@ package ja1;
 
 import java.awt.Button;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.text.StyleConstants;
-import sun.security.krb5.internal.AuthorizationData;
 
 
 
@@ -44,7 +41,7 @@ class Clic extends MouseAdapter{
     
     int largo;
     int alto;
-    boolean hizo;
+    boolean hizo=true;
     
     public void mouseClicked(MouseEvent me){
         System.out.println("Se hizo click");
@@ -88,17 +85,7 @@ class Molde extends JPanel{
 
     }
     
-    
-        public void paintComponent(Graphics g){
-    
-            super.paintComponent(g);
-            
-            
-            if(como.hizo == true){
-                g.drawRect(0, 50, como.largo, como.alto);
-            }
-        
-        }
+
     
     
     
