@@ -4,10 +4,9 @@ package ja1;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Graphics;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -15,20 +14,22 @@ import javax.swing.JTextField;
 
 
 
+
 public class Tecla extends JFrame{
 
-    Molde m = new Molde();
     Button b3 = new Button("MOLDA");
-
-    
+    Molde m = new Molde();
+        
     public Tecla(){
         
         setVisible(true);
         setBounds(400,400,600,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("eventos con teclas");
-
+        
+        
         add(m);
+
 
 
     }
@@ -39,83 +40,64 @@ public class Tecla extends JFrame{
 
 
 
-
-
-
-
-
-
-
-
-
-class Molde extends JPanel implements MouseListener{
+class Molde extends JPanel{
+    Button bt1= new Button("MOLDE");
+    JTextField te1 = new JTextField();
+    JTextField te2 = new JTextField();
+    Evento1 ev = new Evento1();
     
-    Button bt1 = new Button("Enviar");
-    Button bt2= new Button("Salir");
-
-   
-   JTextField j1;
-   JTextField j2 = new JTextField();
+    int largo=100;
+    int alto;
     
     public Molde(){
-
         setBackground(Color.yellow);
-        add(bt2);
+        add(te1);
+        setLayout(null);
+        te1.setBounds(100,50,300,20);
         add(bt1);
+        te2.setBounds(100,200,300,20);
+        add(te2);
         
-        addMouseListener(this);
-
-        add(j2);
-
+        bt1.setBounds(100, 300,200,40);
         
-        
+        addMouseListener(ev);
     }
-    
-
     
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        j1= new JTextField();
+        g.drawRect(largo, 100, 200,400);
+        
     }
- 
+    
+    
+    class Evento1 extends MouseAdapter {
     
 
-    
-    
-    public void mouseClicked(MouseEvent me){
-        
-        System.out.println("Hola se hizo click");
-        
-        int numero =(int)Math.ceil(Math.random()*250);
-        int numero2 =(int)Math.ceil(Math.random()*250);
-        int numero3 =(int)Math.ceil(Math.random()*250);
-        if(true){
-            setBackground(new Color(numero3,numero2,numero));
+        int numero,numero1,numero2;
+
+        public void mouseClicked(MouseEvent me){
+            numero = (int) Math.ceil(Math.random()*200);
+            numero1 = (int) Math.ceil(Math.random()*200);
+            numero2= (int) Math.ceil(Math.random()*200);
+            setBackground(new Color(numero,numero1,numero2));
+            largo= numero;
+
         }
         
         
-
-
-    }
-    
-    public void mouseEntered(MouseEvent me){
-    }
-    
-    public void mouseExited(MouseEvent me){
-    }
-    
-    public void mousePressed(MouseEvent me){
-    
-    }
-    
-    
-    public void mouseReleased(MouseEvent me){
+        
         
     }
     
     
-
+    
+    
 }
+
+
+
+
+
 
 
 
