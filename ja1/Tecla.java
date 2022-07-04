@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 
 
@@ -51,8 +52,10 @@ class Molde extends JPanel implements MouseListener{
     
     Button bt1 = new Button("Enviar");
     Button bt2= new Button("Salir");
-   Graphics gra;
 
+   
+   JTextField j1;
+   JTextField j2 = new JTextField();
     
     public Molde(){
 
@@ -61,16 +64,20 @@ class Molde extends JPanel implements MouseListener{
         add(bt1);
         
         addMouseListener(this);
+
+        add(j2);
+
+        
         
     }
+    
 
     
     public void paintComponent(Graphics g){
-        gra=g;
         super.paintComponent(g);
-        g.drawRect(100, 100, 20, 30);
-
+        j1= new JTextField();
     }
+ 
     
 
     
@@ -86,6 +93,8 @@ class Molde extends JPanel implements MouseListener{
             setBackground(new Color(numero3,numero2,numero));
         }
         
+        
+
 
     }
     
