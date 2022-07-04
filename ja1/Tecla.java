@@ -46,8 +46,8 @@ class Molde extends JPanel{
     JTextField te2 = new JTextField();
     Evento1 ev = new Evento1();
     
-    int largo=100;
-    int alto;
+    int largo=200;
+    int alto=200;
     
     public Molde(){
         setBackground(Color.yellow);
@@ -65,8 +65,8 @@ class Molde extends JPanel{
     
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        g.drawRect(largo, 100, 200,400);
-        
+        g.drawRect(100, 100, largo,alto);
+            
     }
     
     
@@ -80,7 +80,8 @@ class Molde extends JPanel{
             numero1 = (int) Math.ceil(Math.random()*200);
             numero2= (int) Math.ceil(Math.random()*200);
             setBackground(new Color(numero,numero1,numero2));
-            largo= numero;
+            largo= me.getX() -100;
+            alto = me.getY() -100;
 
         }
         
